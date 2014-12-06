@@ -20,31 +20,27 @@
     return  @wordSub
   end
 
-
-    def self.isProfane(str)
-      isProfane = false
-      dictionary.each {|x|
-        if str.include?(x)
-          isProfane = true
-        end
-      }
-      return isProfane
-    end
-
-
-    def self.swapProfanity(str)
-      words = dic_hsh.keys
-      str =str.downcase
-      words.each {|x|
-        if str.include?(x)
-          str.gsub! x, dic_hsh[x]
-        end
-      }
-      if words.size > 1
-        return str.slice(0,1).capitalize + str.slice(1..-1)
-      else
-        return str
+def self.isProfane(str)
+    isProfane = false
+    dictionary.each {|x|
+      if str.downcase.include?(x)
+        isProfane = true
       end
-    end
+    }
+    return isProfane
+  end
+
+
+  def self.swapProfanity(str)
+    words = dic_hsh.keys
+    str.split(" ").each {|y|
+      words.each {|x|
+      if y.downcase == x.downcase
+        str.gsub! y, y.slice(0,1) +'*'*(y.length-2)+ y.slice(y.length-1)
+      end
+    }
+  }
+    return str
+  end
   end
 

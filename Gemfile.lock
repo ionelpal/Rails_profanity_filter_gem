@@ -1,0 +1,17 @@
+PATH
+  remote: .
+  specs:
+    profanity_filter (0.0.2)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    rake (10.1.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  bundler (~> 1.7)
+  profanity_filter!
+  rake (~> 10.0)
